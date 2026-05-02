@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -19,27 +20,37 @@ const Contact = () => {
 
   const [submitted, setSubmitted] = useState(false);
 
+  const [isSending, setIsSending] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsSending(true);
     
-    // Netlify Forms will handle the submission
-    const form = e.target;
-    const formData = new FormData(form);
+    // EmailJS configuration
+    // Replace these with your EmailJS credentials
+    const SERVICE_ID = 'service_novanest';
+    const TEMPLATE_ID = 'template_contact';
+    const USER_ID = 'YOUR_USER_ID';
     
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString()
-    })
-    .then(() => {
-      setSubmitted(true);
-      // Reset form
-      setFormData({ name: '', email: '', message: '' });
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-      alert('Sorry, there was an error sending your message. Please try again.');
-    });
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+      to_email: 'novanestcontactus@gmail.com'
+    };
+    
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, USER_ID)
+      .then(() => {
+        setSubmitted(true);
+        setIsSending(false);
+        // Reset form
+        setFormData({ name: '', email: '', message: '' });
+      })
+      .catch((error) => {
+        console.error('EmailJS Error:', error);
+        setIsSending(false);
+        alert('Sorry, there was an error sending your message. Please try again.');
+      });
   };
 
   return (
@@ -67,13 +78,7 @@ const Contact = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} className="space-y-6">
-            {/* Netlify honeypot field for spam protection */}
-            <p className="hidden">
-              <label>
-                Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
-              </label>
-            </p>
+          <form onSubmit={handleSubmit} className="space-y-6">
             {/* Name Field */}
             <div className="relative">
               <label className="block text-light/80 text-sm mb-2 font-medium">
@@ -125,16 +130,22 @@ const Contact = () => {
             {/* Submit Button */}
             <motion.button
               type="submit"
-              disabled={submitted}
+              disabled={submitted || isSending}
               className={`w-full px-6 py-4 rounded-xl font-semibold text-lg border border-secondary/50 transition-all duration-300 shadow-lg ${
                 submitted 
                   ? 'bg-green-600 text-white cursor-default' 
-                  : 'bg-secondary text-primary hover:bg-secondary/90 hover:scale-[1.02] hover:-translate-y-0.5'
+                  : isSending
+                    ? 'bg-secondary/50 text-primary cursor-wait'
+                    : 'bg-secondary text-primary hover:bg-secondary/90 hover:scale-[1.02] hover:-translate-y-0.5'
               }`}
-              whileHover={submitted ? {} : { scale: 1.02, y: -2 }}
-              whileTap={submitted ? {} : { scale: 0.98 }}
+              whileHover={submitted || isSending ? {} : { scale: 1.02, y: -2 }}
+              whileTap={submitted || isSending ? {} : { scale: 0.98 }}
             >
-              {submitted ? '✅ Message Sent Successfully!' : (t('contact.submit') || 'Send Message')}
+              {isSending 
+                ? '⏳ Sending...' 
+                : submitted 
+                  ? '✅ Message Sent Successfully!' 
+                  : (t('contact.submit') || 'Send Message')}
             </motion.button>
 
             {/* Success Message */}

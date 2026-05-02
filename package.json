@@ -30,7 +30,8 @@
     "split-type": "^0.3.4",
     "three": "^0.184.0",
     "three-stdlib": "^2.36.1",
-    "use-sync-external-store": "^1.6.0"
+    "use-sync-external-store": "^1.6.0",
+    "emailjs-com": "^3.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
