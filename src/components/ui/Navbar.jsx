@@ -27,7 +27,7 @@ const Navbar = () => {
     { path: '/about', label: t('nav.about') },
     { path: '/portfolio', label: t('nav.portfolio') },
     { path: '/contact', label: t('nav.contact') },
-    { path: '/booking', label: t('nav.booking') }
+    { path: '/pricing', label: t('nav.pricing') }
   ];
 
   return (

@@ -223,7 +223,7 @@ const Home = () => {
               className="inline-block rounded-full"
             >
               <Link
-                to="/booking"
+                to="/pricing"
                 className="inline-block px-10 py-5 bg-secondary text-primary rounded-full font-bold text-xl relative overflow-hidden group shadow-xl shadow-secondary/30"
               >
                 <motion.span 

@@ -4,7 +4,7 @@
     "about": "About Us",
     "portfolio": "Portfolio",
     "contact": "Contact",
-    "booking": "Booking"
+    "pricing": "Pricing"
   },
   "hero": {
     "tagline": "Where Creativity Meets Strategy",
@@ -27,7 +27,7 @@
     "message": "Your Message",
     "submit": "Send Message"
   },
-  "booking": {
+  "pricing": {
     "title": "Marketing Packages",
     "subtitle": "Choose the perfect plan for your brand",
     "basic": {
