@@ -116,7 +116,7 @@ const Contact = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           {[
-            { icon: '📧', label: 'Email', value: 'novanest202633@gmail.com' },
+            { icon: '📧', label: 'Email', value: 'novanestcontactus@gmail.com' },
             { icon: '📱', label: 'Phone', value: '+20 1110182114' },
             { icon: '📍', label: 'Location', value: 'Giza, Egypt' }
           ].map((item, index) => (
