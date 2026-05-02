@@ -17,9 +17,29 @@ const Contact = () => {
     });
   };
 
+  const [submitted, setSubmitted] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    
+    // Netlify Forms will handle the submission
+    const form = e.target;
+    const formData = new FormData(form);
+    
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    })
+    .then(() => {
+      setSubmitted(true);
+      // Reset form
+      setFormData({ name: '', email: '', message: '' });
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      alert('Sorry, there was an error sending your message. Please try again.');
+    });
   };
 
   return (
@@ -47,7 +67,13 @@ const Contact = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} className="space-y-6">
+            {/* Netlify honeypot field for spam protection */}
+            <p className="hidden">
+              <label>
+                Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
+              </label>
+            </p>
             {/* Name Field */}
             <div className="relative">
               <label className="block text-light/80 text-sm mb-2 font-medium">
@@ -99,12 +125,31 @@ const Contact = () => {
             {/* Submit Button */}
             <motion.button
               type="submit"
-              className="w-full px-6 py-4 bg-secondary text-primary rounded-xl font-semibold text-lg border border-secondary/50 hover:bg-secondary/90 transition-all duration-300 shadow-lg shadow-secondary/20"
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
+              disabled={submitted}
+              className={`w-full px-6 py-4 rounded-xl font-semibold text-lg border border-secondary/50 transition-all duration-300 shadow-lg ${
+                submitted 
+                  ? 'bg-green-600 text-white cursor-default' 
+                  : 'bg-secondary text-primary hover:bg-secondary/90 hover:scale-[1.02] hover:-translate-y-0.5'
+              }`}
+              whileHover={submitted ? {} : { scale: 1.02, y: -2 }}
+              whileTap={submitted ? {} : { scale: 0.98 }}
             >
-              {t('contact.submit') || 'Send Message'}
+              {submitted ? '✅ Message Sent Successfully!' : (t('contact.submit') || 'Send Message')}
             </motion.button>
+
+            {/* Success Message */}
+            {submitted && (
+              <motion.div 
+                className="p-4 bg-green-600/20 border border-green-500/50 rounded-xl text-center"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <p className="text-green-400 font-medium">
+                  Thank you! Your message has been sent. We&apos;ll get back to you soon.
+                </p>
+              </motion.div>
+            )}
           </form>
         </motion.div>
 
