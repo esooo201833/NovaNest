@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Home Page - High Priority -->
+  <url>
+    <loc>https://novanest.com/</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://novanest.com/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://novanest.com/ar"/>
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://novanest.com/about</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://novanest.com/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://novanest.com/ar/about"/>
+  </url>
+  
+  <!-- Portfolio Page -->
+  <url>
+    <loc>https://novanest.com/portfolio</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://novanest.com/portfolio"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://novanest.com/ar/portfolio"/>
+  </url>
+  
+  <!-- Booking/Packages Page - High Priority for Conversions -->
+  <url>
+    <loc>https://novanest.com/booking</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://novanest.com/booking"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://novanest.com/ar/booking"/>
+  </url>
+  
+  <!-- Contact Page -->
+  <url>
+    <loc>https://novanest.com/contact</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://novanest.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://novanest.com/ar/contact"/>
+  </url>
+  
+</urlset>

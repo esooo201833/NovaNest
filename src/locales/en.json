@@ -1,0 +1,53 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "booking": "Booking"
+  },
+  "hero": {
+    "tagline": "Where Creativity Meets Strategy",
+    "cta": "Get Started"
+  },
+  "about": {
+    "title": "About Us",
+    "story": "We are a premium marketing agency dedicated to transforming brands through innovative digital strategies and creative excellence.",
+    "team": "Our Team"
+  },
+  "portfolio": {
+    "title": "Our Work",
+    "subtitle": "Featured Projects",
+    "cta": "Start Your Project"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "name": "Your Name",
+    "email": "Your Email",
+    "message": "Your Message",
+    "submit": "Send Message"
+  },
+  "booking": {
+    "title": "Marketing Packages",
+    "subtitle": "Choose the perfect plan for your brand",
+    "basic": {
+      "title": "Basic",
+      "price": "$999",
+      "features": ["Social Media Management", "Content Creation", "Monthly Reports"]
+    },
+    "pro": {
+      "title": "Professional",
+      "price": "$2,499",
+      "features": ["All Basic Features", "SEO Optimization", "Email Marketing", "Analytics Dashboard"]
+    },
+    "enterprise": {
+      "title": "Enterprise",
+      "price": "Custom",
+      "features": ["All Pro Features", "Custom Strategy", "Dedicated Account Manager", "24/7 Support"]
+    }
+  },
+  "common": {
+    "readyToCreate": "Ready to Create Something Amazing?",
+    "bringBrandToLife": "Let's bring your brand to life with our creative expertise"
+  }
+}

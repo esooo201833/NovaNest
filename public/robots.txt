@@ -1,0 +1,23 @@
+# robots.txt for NovaNest Marketing Agency
+# https://novanest.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://novanest.com/sitemap.xml
+
+# Optimize crawl rate for search engines
+Crawl-delay: 1
+
+# Allow Googlebot to crawl everything
+User-agent: Googlebot
+Allow: /
+
+# Allow Bingbot to crawl everything  
+User-agent: Bingbot
+Allow: /
+
+# Block any specific patterns if needed (none for now)
+# Disallow: /admin/
+# Disallow: /private/
