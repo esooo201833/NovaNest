@@ -5,13 +5,22 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    // Optimize chunks
+    // Optimize chunks - function form for Vite 8 + Rolldown
     rollupOptions: {
       output: {
-        manualChunks: {
-          'vendor': ['react', 'react-dom', 'react-router-dom'],
-          'animations': ['framer-motion', 'gsap', '@studio-freight/lenis', 'aos'],
-          '3d': ['@react-three/fiber', '@react-three/drei', 'three'],
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
+              return 'vendor';
+            }
+            if (id.includes('framer-motion') || id.includes('gsap') || id.includes('lenis') || id.includes('aos')) {
+              return 'animations';
+            }
+            if (id.includes('@react-three') || id.includes('three')) {
+              return '3d';
+            }
+            return 'vendor';
+          }
         }
       }
     },
