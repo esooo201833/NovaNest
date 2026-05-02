@@ -27,10 +27,9 @@ const Contact = () => {
     setIsSending(true);
     
     // EmailJS configuration
-    // Replace these with your EmailJS credentials
-    const SERVICE_ID = 'service_novanest';
-    const TEMPLATE_ID = 'template_contact';
-    const USER_ID = 'YOUR_USER_ID';
+    const SERVICE_ID = 'service_o3x98xo';
+    const TEMPLATE_ID = 'template_e8701wa';
+    const USER_ID = 'F_i3XVkHrbY02r6PC';
     
     const templateParams = {
       from_name: formData.name,
