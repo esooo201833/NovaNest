@@ -44,7 +44,7 @@ export default defineConfig({
   },
   // Optimize pre-bundling - Vite 8 uses Rolldown
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion', 'use-sync-external-store', 'scheduler'],
+    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion', 'use-sync-external-store', 'scheduler', 'lucide-react'],
     exclude: ['@react-three/fiber']
   }
 })
