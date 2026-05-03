@@ -32,14 +32,14 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://novanest.com/ar/portfolio"/>
   </url>
   
-  <!-- Booking/Packages Page - High Priority for Conversions -->
+  <!-- Pricing Page - High Priority for Conversions -->
   <url>
-    <loc>https://novanest.com/booking</loc>
-    <lastmod>2026-05-02</lastmod>
+    <loc>https://novanest.com/pricing</loc>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://novanest.com/booking"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://novanest.com/ar/booking"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://novanest.com/pricing"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://novanest.com/ar/pricing"/>
   </url>
   
   <!-- Contact Page -->
