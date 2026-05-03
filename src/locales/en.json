@@ -190,6 +190,8 @@
   },
   "floatingActions": {
     "whatsapp": "Chat on WhatsApp",
-    "email": "Send Email"
+    "email": "Send Email",
+    "facebook": "Facebook",
+    "instagram": "Instagram"
   }
 }

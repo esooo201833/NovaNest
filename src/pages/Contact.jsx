@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import emailjs from 'emailjs-com';
 
 const Contact = () => {
@@ -171,16 +172,18 @@ const Contact = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           {[
-            { icon: '📧', labelKey: 'email', value: 'novanestcontactus@gmail.com' },
-            { icon: '📱', labelKey: 'phone', value: '+20 1110182114' },
-            { icon: '📍', labelKey: 'location', value: 'Giza, Egypt' }
+            { Icon: FaEnvelope, labelKey: 'email', value: 'novanestcontactus@gmail.com' },
+            { Icon: FaPhone, labelKey: 'phone', value: '+20 1110182114' },
+            { Icon: FaMapMarkerAlt, labelKey: 'location', value: 'Giza, Egypt' }
           ].map((item, index) => (
             <motion.div
               key={index}
               className="bg-secondary/10 backdrop-blur-sm rounded-xl p-4 text-center border border-secondary/20 shadow-md cursor-pointer hover:bg-secondary/20 transition-all duration-300"
               whileHover={{ y: -4, scale: 1.02 }}
             >
-              <div className="text-2xl mb-2">{item.icon}</div>
+              <div className="mb-2 flex justify-center">
+                <item.Icon className="w-6 h-6 text-secondary" />
+              </div>
               <p className="text-light/60 text-xs uppercase tracking-wide mb-1">{t(`contact.info.${item.labelKey}`)}</p>
               <p className="text-secondary font-medium text-sm break-words overflow-hidden">{item.value}</p>
             </motion.div>

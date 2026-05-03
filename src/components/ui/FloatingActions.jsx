@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { FaWhatsapp, FaEnvelope } from 'react-icons/fa';
+import { FaWhatsapp, FaEnvelope, FaFacebook, FaInstagram } from 'react-icons/fa';
 
 const FloatingActions = () => {
   const { t } = useTranslation();
@@ -57,9 +57,47 @@ const FloatingActions = () => {
         </motion.div>
       </motion.button>
 
+      {/* Facebook Button */}
+      <motion.button
+        aria-label="Facebook"
+        title="Facebook"
+        className="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 transition-all"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 1.4, type: 'spring', stiffness: 200 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <motion.div
+          animate={{ rotate: [0, -10, 10, 0] }}
+          transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 5 }}
+        >
+          <FaFacebook className="w-7 h-7 text-white" />
+        </motion.div>
+      </motion.button>
+
+      {/* Instagram Button */}
+      <motion.button
+        aria-label="Instagram"
+        title="Instagram"
+        className="w-14 h-14 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 rounded-full flex items-center justify-center shadow-lg shadow-pink-500/30 hover:shadow-pink-500/50 transition-all"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 1.6, type: 'spring', stiffness: 200 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <motion.div
+          animate={{ rotate: [0, -10, 10, 0] }}
+          transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 6 }}
+        >
+          <FaInstagram className="w-7 h-7 text-white" />
+        </motion.div>
+      </motion.button>
+
       {/* Pulse Effect Ring for WhatsApp */}
       <motion.div
-        className="absolute bottom-0 right-0 w-14 h-14 rounded-full border-2 border-green-500"
+        className="absolute bottom-[72px] right-0 w-14 h-14 rounded-full border-2 border-green-500"
         animate={{ scale: [1, 1.5], opacity: [0.5, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       />

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { FaMobileAlt, FaMagic, FaChartLine, FaBullseye } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const Home = () => {
@@ -109,19 +110,19 @@ const Home = () => {
   const services = [
     {
       key: 'socialMedia',
-      icon: '📱'
+      Icon: FaMobileAlt
     },
     {
       key: 'contentCreation',
-      icon: '✨'
+      Icon: FaMagic
     },
     {
       key: 'digitalMarketing',
-      icon: '📊'
+      Icon: FaChartLine
     },
     {
       key: 'brandStrategy',
-      icon: '🎯'
+      Icon: FaBullseye
     }
   ];
 
@@ -273,17 +274,16 @@ const Home = () => {
                 transition={{ duration: 0.7, delay: index * 0.15, ease: "easeOut" }}
                 whileHover={{ 
                   y: -15, 
-                  scale: 1.05, 
-                  boxShadow: "0 20px 40px rgba(234, 219, 200, 0.2)",
-                  transition: { duration: 0.3, ease: "easeOut" } 
+                  boxShadow: "0 25px 50px rgba(234, 219, 200, 0.2)",
+                  transition: { duration: 0.3 }
                 }}
               >
-                <motion.div 
-                  className="text-4xl mb-4"
+                <motion.div
+                  className="mb-4 text-secondary"
                   whileHover={{ scale: 1.3, rotate: 10, y: -5 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                 >
-                  {service.icon}
+                  <service.Icon className="w-10 h-10" />
                 </motion.div>
                 <motion.h3 
                   className="text-xl font-bold text-secondary mb-2 font-display"
