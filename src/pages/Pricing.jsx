@@ -29,16 +29,16 @@ const Pricing = () => {
 
   // Service options with React Icons
   const services = [
-    { id: 'social_media', name: 'Social Media Management', Icon: FaShareAlt, basePrice: 500, description: 'Content creation, scheduling & engagement' },
-    { id: 'google_ads', name: 'Google Ads Management', Icon: FaSearch, basePrice: 400, description: 'Campaign setup, optimization & monitoring' },
-    { id: 'facebook_ads', name: 'Facebook/Instagram Ads', Icon: FaBullhorn, basePrice: 400, description: 'Ad creation, targeting & A/B testing' },
-    { id: 'seo', name: 'SEO Optimization', Icon: FaChartLine, basePrice: 600, description: 'Keyword research, on-page & off-page SEO' },
-    { id: 'content', name: 'Content Marketing', Icon: FaPenNib, basePrice: 450, description: 'Blog posts, articles & copywriting' },
-    { id: 'email', name: 'Email Marketing', Icon: FaEnvelope, basePrice: 300, description: 'Newsletters, automation & campaigns' },
-    { id: 'analytics', name: 'Analytics & Reporting', Icon: FaChartBar, basePrice: 250, description: 'Monthly reports & insights' },
-    { id: 'branding', name: 'Brand Strategy', Icon: FaPaintBrush, basePrice: 800, description: 'Brand identity, guidelines & positioning' },
-    { id: 'video', name: 'Video Production', Icon: FaVideo, basePrice: 700, description: 'Short-form & long-form video content' },
-    { id: 'influencer', name: 'Influencer Marketing', Icon: FaStar, basePrice: 500, description: 'Partnership management & outreach' },
+    { id: 'social_media', key: 'socialMedia', Icon: FaShareAlt, basePrice: 500 },
+    { id: 'google_ads', key: 'googleAds', Icon: FaSearch, basePrice: 400 },
+    { id: 'facebook_ads', key: 'facebookAds', Icon: FaBullhorn, basePrice: 400 },
+    { id: 'seo', key: 'seo', Icon: FaChartLine, basePrice: 600 },
+    { id: 'content', key: 'content', Icon: FaPenNib, basePrice: 450 },
+    { id: 'email', key: 'email', Icon: FaEnvelope, basePrice: 300 },
+    { id: 'analytics', key: 'analytics', Icon: FaChartBar, basePrice: 250 },
+    { id: 'branding', key: 'branding', Icon: FaPaintBrush, basePrice: 800 },
+    { id: 'video', key: 'video', Icon: FaVideo, basePrice: 700 },
+    { id: 'influencer', key: 'influencer', Icon: FaStar, basePrice: 500 },
   ];
 
   // Calculate total price
@@ -116,10 +116,10 @@ const Pricing = () => {
               <FaCalculator className="w-10 h-10 text-secondary" />
             </motion.div>
             <h1 className="text-4xl md:text-6xl font-bold text-secondary mb-4 font-display">
-              Pricing Calculator
+              {t('pricing.title')}
             </h1>
             <p className="text-xl text-light/70 max-w-2xl mx-auto">
-              Customize your marketing package based on your needs and budget
+              {t('pricing.subtitle')}
             </p>
           </motion.div>
 
@@ -135,14 +135,14 @@ const Pricing = () => {
               <div className="bg-secondary/10 backdrop-blur-md rounded-2xl p-6 border border-secondary/20">
                 <h2 className="text-xl font-bold text-secondary mb-4 flex items-center gap-2">
                   <span className="bg-secondary text-primary w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span>
-                  Business Size
+                  {t('pricing.calculator.step1')}
                 </h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   {[
-                    { id: 'small', label: 'Small', desc: '1-10 employees' },
-                    { id: 'medium', label: 'Medium', desc: '11-50 employees' },
-                    { id: 'large', label: 'Large', desc: '51-200 employees' },
-                    { id: 'enterprise', label: 'Enterprise', desc: '200+ employees' },
+                    { id: 'small', labelKey: 'small', empKey: 'small' },
+                    { id: 'medium', labelKey: 'medium', empKey: 'medium' },
+                    { id: 'large', labelKey: 'large', empKey: 'large' },
+                    { id: 'enterprise', labelKey: 'enterprise', empKey: 'enterprise' },
                   ].map((size) => {
                     const SizeIcon = sizeIcons[size.id];
                     const isSelected = businessSize === size.id;
@@ -166,9 +166,9 @@ const Pricing = () => {
                           <SizeIcon className={`text-2xl ${isSelected ? 'text-secondary' : 'text-light/60'}`} />
                         </motion.div>
                         <div className={`font-semibold text-sm ${isSelected ? 'text-secondary' : 'text-light/80'}`}>
-                          {size.label}
+                          {t(`pricing.calculator.businessSize.${size.labelKey}`)}
                         </div>
-                        <div className="text-light/50 text-xs">{size.desc}</div>
+                        <div className="text-light/50 text-xs">{t(`pricing.calculator.businessSize.employees.${size.empKey}`)}</div>
                       </motion.button>
                     );
                   })}
@@ -179,7 +179,7 @@ const Pricing = () => {
               <div className="bg-secondary/10 backdrop-blur-md rounded-2xl p-6 border border-secondary/20">
                 <h2 className="text-xl font-bold text-secondary mb-4 flex items-center gap-2">
                   <span className="bg-secondary text-primary w-8 h-8 rounded-full flex items-center justify-center text-sm">2</span>
-                  Select Services
+                  {t('pricing.calculator.step2')}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {services.map((service) => {
@@ -207,7 +207,7 @@ const Pricing = () => {
                           <div className="flex-1">
                             <div className="flex items-center justify-between">
                               <h3 className={`font-semibold ${isSelected ? 'text-secondary' : 'text-light/90'}`}>
-                                {service.name}
+                                {t(`pricing.calculator.services.${service.key}.name`)}
                               </h3>
                               {isSelected && (
                                 <motion.div
@@ -220,9 +220,9 @@ const Pricing = () => {
                                 </motion.div>
                               )}
                             </div>
-                            <p className="text-light/50 text-sm mt-1">{service.description}</p>
+                            <p className="text-light/50 text-sm mt-1">{t(`pricing.calculator.services.${service.key}.description`)}</p>
                             <p className={`text-sm mt-2 font-medium ${isSelected ? 'text-secondary' : 'text-secondary/60'}`}>
-                              From ${service.basePrice}/mo
+                              {t('pricing.calculator.from')} ${service.basePrice}{t('pricing.calculator.perMonth')}
                             </p>
                           </div>
                         </div>
@@ -241,7 +241,7 @@ const Pricing = () => {
                 >
                   <h2 className="text-xl font-bold text-secondary mb-4 flex items-center gap-2">
                     <span className="bg-secondary text-primary w-8 h-8 rounded-full flex items-center justify-center text-sm">3</span>
-                    Monthly Ads Budget
+                    {t('pricing.calculator.adsBudget.title')}
                   </h2>
                   <div className="space-y-4">
                     <div className="flex flex-wrap gap-3">
@@ -265,7 +265,7 @@ const Pricing = () => {
                     </div>
                     <div className="text-light/60 text-sm flex items-center gap-2">
                       <FaBolt className="w-4 h-4 text-yellow-400" />
-                      Management fee: 10% of budget (min $200)
+                      {t('pricing.calculator.adsBudget.managementFee')}
                     </div>
                   </div>
                 </motion.div>
@@ -275,13 +275,13 @@ const Pricing = () => {
               <div className="bg-secondary/10 backdrop-blur-md rounded-2xl p-6 border border-secondary/20">
                 <h2 className="text-xl font-bold text-secondary mb-4 flex items-center gap-2">
                   <span className="bg-secondary text-primary w-8 h-8 rounded-full flex items-center justify-center text-sm">4</span>
-                  Commitment Duration
+                  {t('pricing.calculator.step4')}
                 </h2>
                 <div className="grid grid-cols-3 gap-4">
                   {[
-                    { id: 'monthly', label: 'Monthly', discount: 'No discount', save: 0 },
-                    { id: 'quarterly', label: '3 Months', discount: '10% off', save: 10 },
-                    { id: 'yearly', label: '12 Months', discount: '20% off', save: 20 },
+                    { id: 'monthly', label: t('pricing.calculator.duration.monthly'), save: 0 },
+                    { id: 'quarterly', label: t('pricing.calculator.duration.quarterly'), save: 10 },
+                    { id: 'yearly', label: t('pricing.calculator.duration.yearly'), save: 20 },
                   ].map((opt) => (
                     <motion.button
                       key={opt.id}
@@ -296,7 +296,7 @@ const Pricing = () => {
                     >
                       <div className="text-secondary font-semibold">{opt.label}</div>
                       <div className={`text-sm mt-1 ${opt.save > 0 ? 'text-green-400' : 'text-light/50'}`}>
-                        {opt.discount}
+                        {opt.save > 0 ? `${opt.save}%` : '-'}
                       </div>
                     </motion.button>
                   ))}
@@ -319,13 +319,13 @@ const Pricing = () => {
                   >
                     <FaCalculator className="w-8 h-8 text-secondary" />
                   </motion.div>
-                  <h2 className="text-2xl font-bold text-secondary">Your Quote</h2>
+                  <h2 className="text-2xl font-bold text-secondary">{t('pricing.calculator.yourQuote')}</h2>
                 </div>
                 
                 {/* Selected Services List */}
                 <div className="space-y-3 mb-6 max-h-64 overflow-y-auto">
                   {selectedServices.length === 0 ? (
-                    <p className="text-light/50 text-center py-4">Select services to see pricing</p>
+                    <p className="text-light/50 text-center py-4">{t('pricing.calculator.selectServices')}</p>
                   ) : (
                     selectedServices.map((serviceId) => {
                       const service = services.find(s => s.id === serviceId);
@@ -343,9 +343,9 @@ const Pricing = () => {
                         >
                           <div className="flex items-center gap-2">
                             <service.Icon className="w-4 h-4 text-secondary" />
-                            <span className="text-light/80 text-sm">{service.name}</span>
+                            <span className="text-light/80 text-sm">{t(`pricing.calculator.services.${service.key}.name`)}</span>
                           </div>
-                          <span className="text-secondary font-medium">${Math.round(price)}/mo</span>
+                          <span className="text-secondary font-medium">${Math.round(price)}{t('pricing.calculator.perMonth')}</span>
                         </motion.div>
                       );
                     })
@@ -360,9 +360,9 @@ const Pricing = () => {
                     >
                       <div className="flex items-center gap-2">
                         <FaBullhorn className="w-4 h-4 text-secondary" />
-                        <span className="text-light/80 text-sm">Ads Management Fee</span>
+                        <span className="text-light/80 text-sm">{t('pricing.calculator.quote.adsFee')}</span>
                       </div>
-                      <span className="text-secondary font-medium">${Math.max(200, Math.round(adsBudget * 0.1))}/mo</span>
+                      <span className="text-secondary font-medium">${Math.max(200, Math.round(adsBudget * 0.1))}{t('pricing.calculator.perMonth')}</span>
                     </motion.div>
                   )}
                 </div>
@@ -376,7 +376,7 @@ const Pricing = () => {
                   >
                     <div className="text-green-400 text-center flex items-center justify-center gap-2">
                       <FaStar className="w-4 h-4" />
-                      You save ${Math.round(savings)}/month!
+                      {t('pricing.calculator.youSave')} ${Math.round(savings)}{t('pricing.calculator.perMonth')}!
                     </div>
                   </motion.div>
                 )}
@@ -384,17 +384,17 @@ const Pricing = () => {
                 {/* Total */}
                 <div className="border-t-2 border-secondary/30 pt-4 mb-6">
                   <div className="flex justify-between items-center">
-                    <span className="text-light/70">Subtotal</span>
-                    <span className="text-light/70">${Math.round(total + savings)}/mo</span>
+                    <span className="text-light/70">{t('pricing.calculator.subtotal')}</span>
+                    <span className="text-light/70">${Math.round(total + savings)}{t('pricing.calculator.perMonth')}</span>
                   </div>
                   {savings > 0 && (
                     <div className="flex justify-between items-center mt-2">
-                      <span className="text-green-400">Discount</span>
-                      <span className="text-green-400">-${Math.round(savings)}/mo</span>
+                      <span className="text-green-400">{t('pricing.calculator.discount')}</span>
+                      <span className="text-green-400">-${Math.round(savings)}{t('pricing.calculator.perMonth')}</span>
                     </div>
                   )}
                   <div className="flex justify-between items-center mt-3 pt-3 border-t border-secondary/20">
-                    <span className="text-secondary font-bold text-xl">Total</span>
+                    <span className="text-secondary font-bold text-xl">{t('pricing.calculator.total')}</span>
                     <motion.span 
                       className="text-secondary font-bold text-2xl"
                       key={total}
@@ -419,7 +419,7 @@ const Pricing = () => {
                   whileHover={selectedServices.length > 0 ? { scale: 1.02 } : {}}
                   whileTap={selectedServices.length > 0 ? { scale: 0.98 } : {}}
                 >
-                  {selectedServices.length > 0 ? 'Get Detailed Quote' : 'Select Services First'}
+                  {selectedServices.length > 0 ? t('pricing.calculator.startCampaign') : t('pricing.calculator.selectServices')}
                 </motion.button>
 
                 {/* Features */}
@@ -430,7 +430,7 @@ const Pricing = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 }}
                   >
-                    <FaShieldAlt className="w-4 h-4 text-green-400" /> No setup fees
+                    <FaShieldAlt className="w-4 h-4 text-green-400" /> {t('pricing.calculator.features.noSetupFees')}
                   </motion.div>
                   <motion.div 
                     className="flex items-center gap-2"
@@ -438,7 +438,7 @@ const Pricing = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.2 }}
                   >
-                    <FaBolt className="w-4 h-4 text-green-400" /> Cancel anytime
+                    <FaBolt className="w-4 h-4 text-green-400" /> {t('pricing.calculator.features.cancelAnytime')}
                   </motion.div>
                   <motion.div 
                     className="flex items-center gap-2"
@@ -446,7 +446,7 @@ const Pricing = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.3 }}
                   >
-                    <FaUserCheck className="w-4 h-4 text-green-400" /> Dedicated manager
+                    <FaUserCheck className="w-4 h-4 text-green-400" /> {t('pricing.calculator.features.dedicatedManager')}
                   </motion.div>
                   <motion.div 
                     className="flex items-center gap-2"
@@ -454,7 +454,7 @@ const Pricing = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.4 }}
                   >
-                    <FaFileAlt className="w-4 h-4 text-green-400" /> Monthly reports
+                    <FaFileAlt className="w-4 h-4 text-green-400" /> {t('pricing.calculator.features.monthlyReports')}
                   </motion.div>
                 </div>
               </div>
@@ -484,41 +484,41 @@ const Pricing = () => {
               >
                 <FaStar className="w-8 h-8 text-secondary" />
               </motion.div>
-              <h2 className="text-3xl font-bold text-secondary">Your Custom Quote</h2>
+              <h2 className="text-3xl font-bold text-secondary">{t('pricing.calculator.quote.title')}</h2>
             </div>
-            <p className="text-light/60 text-center mb-6">Here&apos;s your personalized marketing package</p>
+            <p className="text-light/60 text-center mb-6">{t('pricing.calculator.quote.subtitle')}</p>
             
             <div className="bg-secondary/10 rounded-xl p-6 mb-6">
               <div className="flex justify-between items-center mb-4 pb-4 border-b border-secondary/20">
                 <span className="text-light/70 flex items-center gap-2">
-                  <FaBuilding className="w-4 h-4" /> Business Size
+                  <FaBuilding className="w-4 h-4" /> {t('pricing.calculator.quote.businessSize')}
                 </span>
-                <span className="text-secondary capitalize">{businessSize}</span>
+                <span className="text-secondary">{t(`pricing.calculator.businessSize.${businessSize}`)}</span>
               </div>
               <div className="flex justify-between items-center mb-4 pb-4 border-b border-secondary/20">
                 <span className="text-light/70 flex items-center gap-2">
-                  <FaCalendarAlt className="w-4 h-4" /> Duration
+                  <FaCalendarAlt className="w-4 h-4" /> {t('pricing.calculator.quote.duration')}
                 </span>
-                <span className="text-secondary capitalize">{duration}</span>
+                <span className="text-secondary">{t(`pricing.calculator.duration.${duration}`)}</span>
               </div>
               {selectedServices.some(s => ['google_ads', 'facebook_ads'].includes(s)) && (
                 <div className="flex justify-between items-center mb-4 pb-4 border-b border-secondary/20">
                   <span className="text-light/70 flex items-center gap-2">
-                    <FaBullhorn className="w-4 h-4" /> Monthly Ad Budget
+                    <FaBullhorn className="w-4 h-4" /> {t('pricing.calculator.quote.adsBudget')}
                   </span>
                   <span className="text-secondary">${adsBudget.toLocaleString()}</span>
                 </div>
               )}
               <div className="flex justify-between items-center">
                 <span className="text-light/70 flex items-center gap-2">
-                  <FaCheck className="w-4 h-4" /> Selected Services
+                  <FaCheck className="w-4 h-4" /> {t('pricing.calculator.quote.selectedServices')}
                 </span>
                 <span className="text-secondary">{selectedServices.length}</span>
               </div>
             </div>
 
             <div className="text-center mb-6">
-              <div className="text-light/60 mb-2">Total Monthly Investment</div>
+              <div className="text-light/60 mb-2">{t('pricing.calculator.total')}</div>
               <motion.div 
                 className="text-5xl font-bold text-secondary"
                 key={total}
@@ -531,7 +531,7 @@ const Pricing = () => {
               {savings > 0 && (
                 <div className="text-green-400 mt-2 flex items-center justify-center gap-2">
                   <FaStar className="w-4 h-4" />
-                  You save ${Math.round(savings)}/month with {duration} plan!
+                  {t('pricing.calculator.youSave')} ${Math.round(savings)}{t('pricing.calculator.perMonth')}!
                 </div>
               )}
             </div>
@@ -543,14 +543,14 @@ const Pricing = () => {
                 whileTap={{ scale: 0.98 }}
               >
                 <FaBolt className="w-5 h-5" />
-                Start Your Campaign
+                {t('pricing.calculator.startCampaign')}
               </motion.button>
               <button
                 onClick={() => setShowQuote(false)}
                 className="w-full py-3 text-light/60 hover:text-secondary transition-colors flex items-center justify-center gap-2"
               >
                 <FaArrowLeft className="w-4 h-4" />
-                Back to Calculator
+                {t('pricing.calculator.backToCalculator')}
               </button>
             </div>
           </motion.div>

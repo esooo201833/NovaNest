@@ -8,12 +8,58 @@
   },
   "hero": {
     "tagline": "Where Creativity Meets Strategy",
-    "cta": "Get Started"
+    "cta": "Get Started",
+    "subtitle": "Marketing Agency",
+    "servicesTitle": "Our Services",
+    "viewAllWork": "View All Work"
+  },
+  "home": {
+    "services": {
+      "socialMedia": {
+        "title": "Social Media",
+        "description": "Strategic social media management that builds your brand presence"
+      },
+      "contentCreation": {
+        "title": "Content Creation",
+        "description": "Compelling content that tells your brand story"
+      },
+      "digitalMarketing": {
+        "title": "Digital Marketing",
+        "description": "Data-driven campaigns that deliver results"
+      },
+      "brandStrategy": {
+        "title": "Brand Strategy",
+        "description": "Comprehensive brand positioning and identity"
+      }
+    },
+    "featuredWork": {
+      "fashionBrand": "Fashion Brand Launch",
+      "techStartup": "Tech Startup",
+      "restaurant": "Restaurant Chain",
+      "categorySocial": "Social Media",
+      "categoryBrand": "Brand Strategy",
+      "categoryContent": "Content Creation"
+    }
   },
   "about": {
     "title": "About Us",
     "story": "We are a premium marketing agency dedicated to transforming brands through innovative digital strategies and creative excellence.",
-    "team": "Our Team"
+    "team": "Our Team",
+    "valuesTitle": "Our Values",
+    "values": {
+      "creativity": {
+        "title": "Creativity",
+        "description": "Pushing boundaries with innovative ideas and creative solutions that make your brand stand out"
+      },
+      "excellence": {
+        "title": "Excellence",
+        "description": "Delivering quality in every project with attention to detail and commitment to your success"
+      },
+      "collaboration": {
+        "title": "Collaboration",
+        "description": "Working together with you to achieve greatness through partnership and shared vision"
+      }
+    }
   },
   "portfolio": {
     "title": "Our Work",
@@ -22,32 +68,128 @@
   },
   "contact": {
     "title": "Get In Touch",
+    "subtitle": "We'd love to hear from you",
     "name": "Your Name",
     "email": "Your Email",
     "message": "Your Message",
-    "submit": "Send Message"
+    "submit": "Send Message",
+    "sending": "Sending...",
+    "success": "Message Sent Successfully!",
+    "successMessage": "Thank you! Your message has been sent. We'll get back to you soon.",
+    "error": "Sorry, there was an error sending your message. Please try again.",
+    "placeholderName": "Enter your name",
+    "placeholderEmail": "Enter your email",
+    "placeholderMessage": "Write your message here...",
+    "info": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location"
+    }
   },
   "pricing": {
-    "title": "Marketing Packages",
-    "subtitle": "Choose the perfect plan for your brand",
-    "basic": {
-      "title": "Basic",
-      "price": "$999",
-      "features": ["Social Media Management", "Content Creation", "Monthly Reports"]
-    },
-    "pro": {
-      "title": "Professional",
-      "price": "$2,499",
-      "features": ["All Basic Features", "SEO Optimization", "Email Marketing", "Analytics Dashboard"]
-    },
-    "enterprise": {
-      "title": "Enterprise",
-      "price": "Custom",
-      "features": ["All Pro Features", "Custom Strategy", "Dedicated Account Manager", "24/7 Support"]
+    "title": "Pricing Calculator",
+    "subtitle": "Customize your marketing package based on your needs and budget",
+    "calculator": {
+      "step1": "Business Size",
+      "step2": "Select Services",
+      "step3": "Ads Budget",
+      "step4": "Duration",
+      "yourQuote": "Your Quote",
+      "selectServices": "Select services to see pricing",
+      "from": "From ",
+      "perMonth": "/mo",
+      "subtotal": "Subtotal",
+      "discount": "Discount",
+      "total": "Total Monthly",
+      "startCampaign": "Start Your Campaign",
+      "backToCalculator": "Back to Calculator",
+      "youSave": "You save",
+      "businessSize": {
+        "small": "Small",
+        "medium": "Medium",
+        "large": "Large",
+        "enterprise": "Enterprise",
+        "employees": {
+          "small": "1-10 employees",
+          "medium": "11-50 employees",
+          "large": "51-200 employees",
+          "enterprise": "200+ employees"
+        }
+      },
+      "services": {
+        "socialMedia": {
+          "name": "Social Media Management",
+          "description": "Content creation, scheduling & engagement"
+        },
+        "googleAds": {
+          "name": "Google Ads Management",
+          "description": "Campaign setup, optimization & monitoring"
+        },
+        "facebookAds": {
+          "name": "Facebook/Instagram Ads",
+          "description": "Ad creation, targeting & A/B testing"
+        },
+        "seo": {
+          "name": "SEO Optimization",
+          "description": "Keyword research, on-page & off-page SEO"
+        },
+        "content": {
+          "name": "Content Marketing",
+          "description": "Blog posts, articles & copywriting"
+        },
+        "email": {
+          "name": "Email Marketing",
+          "description": "Newsletters, automation & campaigns"
+        },
+        "analytics": {
+          "name": "Analytics & Reporting",
+          "description": "Monthly reports & insights"
+        },
+        "branding": {
+          "name": "Brand Strategy",
+          "description": "Brand identity, guidelines & positioning"
+        },
+        "video": {
+          "name": "Video Production",
+          "description": "Short-form & long-form video content"
+        },
+        "influencer": {
+          "name": "Influencer Marketing",
+          "description": "Partnership management & outreach"
+        }
+      },
+      "duration": {
+        "monthly": "Monthly",
+        "quarterly": "Quarterly (10% off)",
+        "yearly": "Yearly (20% off)"
+      },
+      "adsBudget": {
+        "title": "Monthly Ad Budget",
+        "managementFee": "Management fee: 10% of budget (min $200)"
+      },
+      "features": {
+        "noSetupFees": "No setup fees",
+        "cancelAnytime": "Cancel anytime",
+        "dedicatedManager": "Dedicated manager",
+        "monthlyReports": "Monthly reports"
+      },
+      "quote": {
+        "title": "Your Custom Quote",
+        "subtitle": "Here's your personalized marketing package",
+        "businessSize": "Business Size",
+        "duration": "Duration",
+        "adsBudget": "Monthly Ad Budget",
+        "selectedServices": "Selected Services",
+        "adsFee": "Ads Management Fee"
+      }
     }
   },
   "common": {
     "readyToCreate": "Ready to Create Something Amazing?",
     "bringBrandToLife": "Let's bring your brand to life with our creative expertise"
+  },
+  "floatingActions": {
+    "whatsapp": "Chat on WhatsApp",
+    "email": "Send Email"
   }
 }

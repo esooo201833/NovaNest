@@ -123,13 +123,13 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Our Values
+            {t('about.valuesTitle')}
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: 'Creativity', description: 'Pushing boundaries with innovative ideas and creative solutions that make your brand stand out.' },
-              { title: 'Excellence', description: 'Delivering quality in every project with attention to detail and commitment to your success.' },
-              { title: 'Collaboration', description: 'Working together with you to achieve greatness through partnership and shared vision.' }
+              { key: 'creativity', emoji: '💡' },
+              { key: 'excellence', emoji: '⭐' },
+              { key: 'collaboration', emoji: '🤝' }
             ].map((value, index) => (
               <motion.div
                 key={index}
@@ -151,11 +151,11 @@ const About = () => {
                   className="mb-4"
                 >
                   <span className="text-4xl">
-                    {index === 0 ? '💡' : index === 1 ? '⭐' : '🤝'}
+                    {value.emoji}
                   </span>
                 </motion.div>
-                <h3 className="text-2xl font-bold text-secondary mb-4 font-display">{value.title}</h3>
-                <p className="text-light/80 leading-relaxed">{value.description}</p>
+                <h3 className="text-2xl font-bold text-secondary mb-4 font-display">{t(`about.values.${value.key}.title`)}</h3>
+                <p className="text-light/80 leading-relaxed">{t(`about.values.${value.key}.description`)}</p>
               </motion.div>
             ))}
           </div>

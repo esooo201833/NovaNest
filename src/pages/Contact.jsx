@@ -66,7 +66,7 @@ const Contact = () => {
             {t('contact.title') || 'Get In Touch'}
           </h1>
           <p className="text-lg text-light/70">
-            We&apos;d love to hear from you
+            {t('contact.subtitle')}
           </p>
         </motion.div>
 
@@ -88,7 +88,7 @@ const Contact = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                placeholder="Enter your name"
+                placeholder={t('contact.placeholderName')}
                 className="w-full px-4 py-3 bg-secondary/10 backdrop-blur-sm border-2 border-secondary/30 rounded-xl text-secondary placeholder-light/40 focus:outline-none focus:border-secondary/60 focus:ring-2 focus:ring-secondary/20 transition-all duration-300"
                 required
               />
@@ -104,7 +104,7 @@ const Contact = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                placeholder="Enter your email"
+                placeholder={t('contact.placeholderEmail')}
                 className="w-full px-4 py-3 bg-secondary/10 backdrop-blur-sm border-2 border-secondary/30 rounded-xl text-secondary placeholder-light/40 focus:outline-none focus:border-secondary/60 focus:ring-2 focus:ring-secondary/20 transition-all duration-300"
                 required
               />
@@ -119,7 +119,7 @@ const Contact = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleInputChange}
-                placeholder="Write your message here..."
+                placeholder={t('contact.placeholderMessage')}
                 rows={5}
                 className="w-full px-4 py-3 bg-secondary/10 backdrop-blur-sm border-2 border-secondary/30 rounded-xl text-secondary placeholder-light/40 focus:outline-none focus:border-secondary/60 focus:ring-2 focus:ring-secondary/20 transition-all duration-300 resize-none"
                 required
@@ -141,10 +141,10 @@ const Contact = () => {
               whileTap={submitted || isSending ? {} : { scale: 0.98 }}
             >
               {isSending 
-                ? '⏳ Sending...' 
+                ? `⏳ ${t('contact.sending')}` 
                 : submitted 
-                  ? '✅ Message Sent Successfully!' 
-                  : (t('contact.submit') || 'Send Message')}
+                  ? `✅ ${t('contact.success')}` 
+                  : t('contact.submit')}
             </motion.button>
 
             {/* Success Message */}
@@ -156,7 +156,7 @@ const Contact = () => {
                 transition={{ duration: 0.3 }}
               >
                 <p className="text-green-400 font-medium">
-                  Thank you! Your message has been sent. We&apos;ll get back to you soon.
+                  {t('contact.successMessage')}
                 </p>
               </motion.div>
             )}
@@ -171,9 +171,9 @@ const Contact = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           {[
-            { icon: '📧', label: 'Email', value: 'novanestcontactus@gmail.com' },
-            { icon: '📱', label: 'Phone', value: '+20 1110182114' },
-            { icon: '📍', label: 'Location', value: 'Giza, Egypt' }
+            { icon: '📧', labelKey: 'email', value: 'novanestcontactus@gmail.com' },
+            { icon: '📱', labelKey: 'phone', value: '+20 1110182114' },
+            { icon: '📍', labelKey: 'location', value: 'Giza, Egypt' }
           ].map((item, index) => (
             <motion.div
               key={index}
@@ -181,7 +181,7 @@ const Contact = () => {
               whileHover={{ y: -4, scale: 1.02 }}
             >
               <div className="text-2xl mb-2">{item.icon}</div>
-              <p className="text-light/60 text-xs uppercase tracking-wide mb-1">{item.label}</p>
+              <p className="text-light/60 text-xs uppercase tracking-wide mb-1">{t(`contact.info.${item.labelKey}`)}</p>
               <p className="text-secondary font-medium text-sm break-words overflow-hidden">{item.value}</p>
             </motion.div>
           ))}

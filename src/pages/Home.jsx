@@ -108,41 +108,37 @@ const Home = () => {
 
   const services = [
     {
-      title: 'Social Media',
-      description: 'Strategic social media management that builds your brand presence',
+      key: 'socialMedia',
       icon: '📱'
     },
     {
-      title: 'Content Creation',
-      description: 'Compelling content that tells your brand story',
+      key: 'contentCreation',
       icon: '✨'
     },
     {
-      title: 'Digital Marketing',
-      description: 'Data-driven campaigns that deliver results',
+      key: 'digitalMarketing',
       icon: '📊'
     },
     {
-      title: 'Brand Strategy',
-      description: 'Comprehensive brand positioning and identity',
+      key: 'brandStrategy',
       icon: '🎯'
     }
   ];
 
   const featuredWork = [
     {
-      title: 'Fashion Brand Launch',
-      category: 'Social Media',
+      titleKey: 'fashionBrand',
+      categoryKey: 'categorySocial',
       image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop'
     },
     {
-      title: 'Tech Startup',
-      category: 'Brand Strategy',
+      titleKey: 'techStartup',
+      categoryKey: 'categoryBrand',
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop'
     },
     {
-      title: 'Restaurant Chain',
-      category: 'Content Creation',
+      titleKey: 'restaurant',
+      categoryKey: 'categoryContent',
       image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=300&fit=crop'
     }
   ];
@@ -190,7 +186,7 @@ const Home = () => {
               transition={{ duration: 0.3 }}
               className="inline-block"
             >
-              Marketing Agency
+              {t('hero.subtitle')}
             </motion.span>
           </motion.p>
 
@@ -261,7 +257,7 @@ const Home = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Our Services
+            {t('hero.servicesTitle')}
           </motion.h2>
           <div
             ref={servicesRef}
@@ -294,14 +290,14 @@ const Home = () => {
                   whileHover={{ x: 5 }}
                   transition={{ duration: 0.2 }}
                 >
-                  {service.title}
+                  {t(`home.services.${service.key}.title`)}
                 </motion.h3>
                 <motion.p 
                   className="text-light/80 leading-relaxed"
                   initial={{ opacity: 0.7 }}
                   whileHover={{ opacity: 1 }}
                 >
-                  {service.description}
+                  {t(`home.services.${service.key}.description`)}
                 </motion.p>
               </motion.div>
             ))}
@@ -368,7 +364,7 @@ const Home = () => {
                       initial={{ x: -10 }}
                       whileHover={{ x: 0 }}
                     >
-                      {work.category}
+                      {t(`home.featuredWork.${work.categoryKey}`)}
                     </motion.p>
                     <motion.h3 
                       className="text-xl font-bold text-secondary font-display"
@@ -376,7 +372,7 @@ const Home = () => {
                       whileHover={{ x: 0 }}
                       transition={{ delay: 0.1 }}
                     >
-                      {work.title}
+                      {t(`home.featuredWork.${work.titleKey}`)}
                     </motion.h3>
                   </div>
                 </motion.div>
@@ -401,7 +397,7 @@ const Home = () => {
                 transition={{ duration: 0.3 }}
               />
               <span className="relative z-10 group-hover:text-primary transition-colors duration-300">
-                View All Work
+                {t('hero.viewAllWork')}
               </span>
             </Link>
           </motion.div>

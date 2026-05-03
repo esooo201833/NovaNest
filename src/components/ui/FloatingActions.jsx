@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { FaWhatsapp, FaEnvelope } from 'react-icons/fa';
 
 const FloatingActions = () => {
+  const { t } = useTranslation();
   const whatsappNumber = '01110182114';
   const email = 'novanestcontactus@gmail.com';
 
@@ -18,6 +20,8 @@ const FloatingActions = () => {
       {/* WhatsApp Button */}
       <motion.button
         onClick={handleWhatsApp}
+        aria-label={t('floatingActions.whatsapp')}
+        title={t('floatingActions.whatsapp')}
         className="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg shadow-green-500/30 hover:shadow-green-500/50 transition-all"
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -36,6 +40,8 @@ const FloatingActions = () => {
       {/* Email Button */}
       <motion.button
         onClick={handleEmail}
+        aria-label={t('floatingActions.email')}
+        title={t('floatingActions.email')}
         className="w-14 h-14 bg-secondary rounded-full flex items-center justify-center shadow-lg shadow-secondary/30 hover:shadow-secondary/50 transition-all"
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
