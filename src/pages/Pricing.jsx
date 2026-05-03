@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { 
-  Building2, Building, Factory, Globe,
-  Share2, Search, Megaphone, TrendingUp, 
-  PenTool, Mail, BarChart3, Palette, 
-  Video, Star, Calculator, Check, ArrowLeft,
-  Zap, Shield, UserCheck, FileText, Calendar
-} from 'lucide-react';
+  FaBuilding, FaCity, FaIndustry, FaGlobe,
+  FaShareAlt, FaSearch, FaBullhorn, FaChartLine, 
+  FaPenNib, FaEnvelope, FaChartBar, FaPaintBrush, 
+  FaVideo, FaStar, FaCalculator, FaCheck, FaArrowLeft,
+  FaBolt, FaShieldAlt, FaUserCheck, FaFileAlt, FaCalendarAlt
+} from 'react-icons/fa';
 
 const Pricing = () => {
   const { t } = useTranslation();
@@ -21,24 +21,24 @@ const Pricing = () => {
 
   // Business size icons with animations
   const sizeIcons = {
-    small: Building2,
-    medium: Building,
-    large: Factory,
-    enterprise: Globe
+    small: FaBuilding,
+    medium: FaCity,
+    large: FaIndustry,
+    enterprise: FaGlobe
   };
 
-  // Service options with Lucide icons
+  // Service options with React Icons
   const services = [
-    { id: 'social_media', name: 'Social Media Management', Icon: Share2, basePrice: 500, description: 'Content creation, scheduling & engagement' },
-    { id: 'google_ads', name: 'Google Ads Management', Icon: Search, basePrice: 400, description: 'Campaign setup, optimization & monitoring' },
-    { id: 'facebook_ads', name: 'Facebook/Instagram Ads', Icon: Megaphone, basePrice: 400, description: 'Ad creation, targeting & A/B testing' },
-    { id: 'seo', name: 'SEO Optimization', Icon: TrendingUp, basePrice: 600, description: 'Keyword research, on-page & off-page SEO' },
-    { id: 'content', name: 'Content Marketing', Icon: PenTool, basePrice: 450, description: 'Blog posts, articles & copywriting' },
-    { id: 'email', name: 'Email Marketing', Icon: Mail, basePrice: 300, description: 'Newsletters, automation & campaigns' },
-    { id: 'analytics', name: 'Analytics & Reporting', Icon: BarChart3, basePrice: 250, description: 'Monthly reports & insights' },
-    { id: 'branding', name: 'Brand Strategy', Icon: Palette, basePrice: 800, description: 'Brand identity, guidelines & positioning' },
-    { id: 'video', name: 'Video Production', Icon: Video, basePrice: 700, description: 'Short-form & long-form video content' },
-    { id: 'influencer', name: 'Influencer Marketing', Icon: Star, basePrice: 500, description: 'Partnership management & outreach' },
+    { id: 'social_media', name: 'Social Media Management', Icon: FaShareAlt, basePrice: 500, description: 'Content creation, scheduling & engagement' },
+    { id: 'google_ads', name: 'Google Ads Management', Icon: FaSearch, basePrice: 400, description: 'Campaign setup, optimization & monitoring' },
+    { id: 'facebook_ads', name: 'Facebook/Instagram Ads', Icon: FaBullhorn, basePrice: 400, description: 'Ad creation, targeting & A/B testing' },
+    { id: 'seo', name: 'SEO Optimization', Icon: FaChartLine, basePrice: 600, description: 'Keyword research, on-page & off-page SEO' },
+    { id: 'content', name: 'Content Marketing', Icon: FaPenNib, basePrice: 450, description: 'Blog posts, articles & copywriting' },
+    { id: 'email', name: 'Email Marketing', Icon: FaEnvelope, basePrice: 300, description: 'Newsletters, automation & campaigns' },
+    { id: 'analytics', name: 'Analytics & Reporting', Icon: FaChartBar, basePrice: 250, description: 'Monthly reports & insights' },
+    { id: 'branding', name: 'Brand Strategy', Icon: FaPaintBrush, basePrice: 800, description: 'Brand identity, guidelines & positioning' },
+    { id: 'video', name: 'Video Production', Icon: FaVideo, basePrice: 700, description: 'Short-form & long-form video content' },
+    { id: 'influencer', name: 'Influencer Marketing', Icon: FaStar, basePrice: 500, description: 'Partnership management & outreach' },
   ];
 
   // Calculate total price
@@ -113,7 +113,7 @@ const Pricing = () => {
               animate={{ rotate: [0, 360] }}
               transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
             >
-              <Calculator className="w-10 h-10 text-secondary" />
+              <FaCalculator className="w-10 h-10 text-secondary" />
             </motion.div>
             <h1 className="text-4xl md:text-6xl font-bold text-secondary mb-4 font-display">
               Pricing Calculator
@@ -163,7 +163,7 @@ const Pricing = () => {
                           variants={iconHoverVariants}
                           whileHover="hover"
                         >
-                          <SizeIcon className={`w-8 h-8 ${isSelected ? 'text-secondary' : 'text-light/60'}`} />
+                          <SizeIcon className={`text-2xl ${isSelected ? 'text-secondary' : 'text-light/60'}`} />
                         </motion.div>
                         <div className={`font-semibold text-sm ${isSelected ? 'text-secondary' : 'text-light/80'}`}>
                           {size.label}
@@ -216,7 +216,7 @@ const Pricing = () => {
                                   animate="animate"
                                   className="text-green-400"
                                 >
-                                  <Check className="w-5 h-5" />
+                                  <FaCheck className="w-5 h-5" />
                                 </motion.div>
                               )}
                             </div>
@@ -264,7 +264,7 @@ const Pricing = () => {
                       ))}
                     </div>
                     <div className="text-light/60 text-sm flex items-center gap-2">
-                      <Zap className="w-4 h-4 text-yellow-400" />
+                      <FaBolt className="w-4 h-4 text-yellow-400" />
                       Management fee: 10% of budget (min $200)
                     </div>
                   </div>
@@ -317,7 +317,7 @@ const Pricing = () => {
                     animate={{ rotate: 360 }}
                     transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
                   >
-                    <Calculator className="w-8 h-8 text-secondary" />
+                    <FaCalculator className="w-8 h-8 text-secondary" />
                   </motion.div>
                   <h2 className="text-2xl font-bold text-secondary">Your Quote</h2>
                 </div>
@@ -359,7 +359,7 @@ const Pricing = () => {
                       animate={{ opacity: 1 }}
                     >
                       <div className="flex items-center gap-2">
-                        <Megaphone className="w-4 h-4 text-secondary" />
+                        <FaBullhorn className="w-4 h-4 text-secondary" />
                         <span className="text-light/80 text-sm">Ads Management Fee</span>
                       </div>
                       <span className="text-secondary font-medium">${Math.max(200, Math.round(adsBudget * 0.1))}/mo</span>
@@ -375,7 +375,7 @@ const Pricing = () => {
                     animate={{ scale: 1, opacity: 1 }}
                   >
                     <div className="text-green-400 text-center flex items-center justify-center gap-2">
-                      <Star className="w-4 h-4" />
+                      <FaStar className="w-4 h-4" />
                       You save ${Math.round(savings)}/month!
                     </div>
                   </motion.div>
@@ -430,7 +430,7 @@ const Pricing = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 }}
                   >
-                    <Shield className="w-4 h-4 text-green-400" /> No setup fees
+                    <FaShieldAlt className="w-4 h-4 text-green-400" /> No setup fees
                   </motion.div>
                   <motion.div 
                     className="flex items-center gap-2"
@@ -438,7 +438,7 @@ const Pricing = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.2 }}
                   >
-                    <Zap className="w-4 h-4 text-green-400" /> Cancel anytime
+                    <FaBolt className="w-4 h-4 text-green-400" /> Cancel anytime
                   </motion.div>
                   <motion.div 
                     className="flex items-center gap-2"
@@ -446,7 +446,7 @@ const Pricing = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.3 }}
                   >
-                    <UserCheck className="w-4 h-4 text-green-400" /> Dedicated manager
+                    <FaUserCheck className="w-4 h-4 text-green-400" /> Dedicated manager
                   </motion.div>
                   <motion.div 
                     className="flex items-center gap-2"
@@ -454,7 +454,7 @@ const Pricing = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.4 }}
                   >
-                    <FileText className="w-4 h-4 text-green-400" /> Monthly reports
+                    <FaFileAlt className="w-4 h-4 text-green-400" /> Monthly reports
                   </motion.div>
                 </div>
               </div>
@@ -482,7 +482,7 @@ const Pricing = () => {
                 animate={{ rotate: 360 }}
                 transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
               >
-                <Star className="w-8 h-8 text-secondary" />
+                <FaStar className="w-8 h-8 text-secondary" />
               </motion.div>
               <h2 className="text-3xl font-bold text-secondary">Your Custom Quote</h2>
             </div>
@@ -491,27 +491,27 @@ const Pricing = () => {
             <div className="bg-secondary/10 rounded-xl p-6 mb-6">
               <div className="flex justify-between items-center mb-4 pb-4 border-b border-secondary/20">
                 <span className="text-light/70 flex items-center gap-2">
-                  <Building2 className="w-4 h-4" /> Business Size
+                  <FaBuilding className="w-4 h-4" /> Business Size
                 </span>
                 <span className="text-secondary capitalize">{businessSize}</span>
               </div>
               <div className="flex justify-between items-center mb-4 pb-4 border-b border-secondary/20">
                 <span className="text-light/70 flex items-center gap-2">
-                  <Calendar className="w-4 h-4" /> Duration
+                  <FaCalendarAlt className="w-4 h-4" /> Duration
                 </span>
                 <span className="text-secondary capitalize">{duration}</span>
               </div>
               {selectedServices.some(s => ['google_ads', 'facebook_ads'].includes(s)) && (
                 <div className="flex justify-between items-center mb-4 pb-4 border-b border-secondary/20">
                   <span className="text-light/70 flex items-center gap-2">
-                    <Megaphone className="w-4 h-4" /> Monthly Ad Budget
+                    <FaBullhorn className="w-4 h-4" /> Monthly Ad Budget
                   </span>
                   <span className="text-secondary">${adsBudget.toLocaleString()}</span>
                 </div>
               )}
               <div className="flex justify-between items-center">
                 <span className="text-light/70 flex items-center gap-2">
-                  <Check className="w-4 h-4" /> Selected Services
+                  <FaCheck className="w-4 h-4" /> Selected Services
                 </span>
                 <span className="text-secondary">{selectedServices.length}</span>
               </div>
@@ -530,7 +530,7 @@ const Pricing = () => {
               </motion.div>
               {savings > 0 && (
                 <div className="text-green-400 mt-2 flex items-center justify-center gap-2">
-                  <Star className="w-4 h-4" />
+                  <FaStar className="w-4 h-4" />
                   You save ${Math.round(savings)}/month with {duration} plan!
                 </div>
               )}
@@ -542,14 +542,14 @@ const Pricing = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <Zap className="w-5 h-5" />
+                <FaBolt className="w-5 h-5" />
                 Start Your Campaign
               </motion.button>
               <button
                 onClick={() => setShowQuote(false)}
                 className="w-full py-3 text-light/60 hover:text-secondary transition-colors flex items-center justify-center gap-2"
               >
-                <ArrowLeft className="w-4 h-4" />
+                <FaArrowLeft className="w-4 h-4" />
                 Back to Calculator
               </button>
             </div>

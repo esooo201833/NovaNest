@@ -4,6 +4,7 @@ import Lenis from '@studio-freight/lenis';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Navbar from './components/ui/Navbar';
+import FloatingActions from './components/ui/FloatingActions';
 import './index.css';
 
 // Lazy load heavy components for better performance
@@ -65,6 +66,7 @@ function App() {
           )}
         </Suspense>
         <Navbar />
+        <FloatingActions />
         <main>
           <Suspense fallback={<PageLoader />}>
             <Routes>
