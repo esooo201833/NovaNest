@@ -20,6 +20,7 @@ const Navbar = () => {
     const newLang = i18n.language === 'en' ? 'ar' : 'en';
     i18n.changeLanguage(newLang);
     document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr';
+    localStorage.setItem('novanest_lang', newLang);
   };
 
   const navItems = [
@@ -106,7 +107,7 @@ const Navbar = () => {
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
               />
               <span className="relative z-10 group-hover:text-primary transition-colors duration-300">
-                {i18n.language === 'en' ? 'AR' : 'EN'}
+                {i18n.language === 'en' ? 'العربية' : 'English'}
               </span>
             </motion.button>
           </div>

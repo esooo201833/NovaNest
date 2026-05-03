@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Lenis from '@studio-freight/lenis';
 import AOS from 'aos';
@@ -23,9 +23,13 @@ const PageLoader = () => (
 );
 
 function App() {
-  const [showAnimation, setShowAnimation] = useState(true);
+  // Only show animation once per session (not on every page refresh)
+  const [showAnimation, setShowAnimation] = useState(
+    () => !sessionStorage.getItem('novanest_intro_seen')
+  );
 
   const handleAnimationComplete = () => {
+    sessionStorage.setItem('novanest_intro_seen', '1');
     setShowAnimation(false);
   };
 
@@ -38,11 +42,13 @@ function App() {
       smoothWheel: true,
     });
 
+    // Keep track of RAF id for proper cleanup
+    let rafId;
     function raf(time) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     // Initialize AOS
     AOS.init({
@@ -53,6 +59,7 @@ function App() {
     });
 
     return () => {
+      cancelAnimationFrame(rafId); // Stop the RAF loop
       lenis.destroy();
     };
   }, []);

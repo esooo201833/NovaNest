@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -212,14 +213,9 @@ const Portfolio = () => {
           >
             {t('common.bringBrandToLife')}
           </motion.p>
-          <motion.button
-            className="px-8 py-4 bg-secondary text-primary rounded-full font-semibold text-lg relative overflow-hidden group shadow-lg shadow-secondary/20"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(234, 219, 200, 0.3)' }}
-            whileTap={{ scale: 0.95 }}
+          <Link
+            to="/contact"
+            className="inline-block px-8 py-4 bg-secondary text-primary rounded-full font-semibold text-lg relative overflow-hidden group shadow-lg shadow-secondary/20 hover:scale-105 hover:shadow-secondary/30 transition-all duration-300"
           >
             <motion.span 
               className="absolute inset-0 bg-light"
@@ -230,7 +226,7 @@ const Portfolio = () => {
             <span className="relative z-10 group-hover:text-primary transition-colors duration-300">
               {t('portfolio.cta')}
             </span>
-          </motion.button>
+          </Link>
         </div>
       </section>
     </div>

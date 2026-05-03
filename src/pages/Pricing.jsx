@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   FaBuilding, FaCity, FaIndustry, FaGlobe,
@@ -11,6 +12,7 @@ import {
 
 const Pricing = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   
   // State for calculator
   const [adsBudget, setAdsBudget] = useState(1000);
@@ -79,8 +81,30 @@ const Pricing = () => {
 
   const budgetOptions = [500, 1000, 2500, 5000, 10000, 25000];
 
+  // Calculate pre-discount total (before any duration discount)
+  const calculateBaseTotal = () => {
+    let total = 0;
+    selectedServices.forEach(serviceId => {
+      const service = services.find(s => s.id === serviceId);
+      if (service) {
+        let servicePrice = service.basePrice;
+        if (businessSize === 'medium') servicePrice *= 1.3;
+        if (businessSize === 'large') servicePrice *= 1.6;
+        if (businessSize === 'enterprise') servicePrice *= 2.2;
+        total += servicePrice;
+      }
+    });
+    if (selectedServices.some(s => ['google_ads', 'facebook_ads'].includes(s))) {
+      const adsFee = Math.max(200, adsBudget * 0.1);
+      total += adsFee;
+    }
+    return Math.round(total);
+  };
+
   const total = calculateTotal();
-  const savings = duration === 'quarterly' ? total * 0.1 : duration === 'yearly' ? total * 0.25 : 0;
+  // Savings calculated from base (pre-discount) total for accuracy
+  const baseTotal = calculateBaseTotal();
+  const savings = duration === 'quarterly' ? Math.round(baseTotal * 0.1) : duration === 'yearly' ? Math.round(baseTotal * 0.2) : 0;
 
   // Animation variants
   const iconHoverVariants = {
@@ -538,6 +562,7 @@ const Pricing = () => {
 
             <div className="space-y-3">
               <motion.button
+                onClick={() => { setShowQuote(false); navigate('/contact'); }}
                 className="w-full py-4 bg-secondary text-primary rounded-xl font-semibold text-lg flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}

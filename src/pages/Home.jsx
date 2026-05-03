@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { FaMobileAlt, FaMagic, FaChartLine, FaBullseye } from 'react-icons/fa';
@@ -6,9 +6,6 @@ import { motion } from 'framer-motion';
 
 const Home = () => {
   const { t } = useTranslation();
-  const heroRef = useRef(null);
-  const servicesRef = useRef(null);
-  const featuredRef = useRef(null);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -150,7 +147,6 @@ const Home = () => {
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary via-primary to-accent/30 pt-20">
         <motion.div 
-          ref={heroRef} 
           className="text-center px-4"
           variants={containerVariants}
           initial="hidden"
@@ -261,7 +257,6 @@ const Home = () => {
             {t('hero.servicesTitle')}
           </motion.h2>
           <div
-            ref={servicesRef}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {services.map((service, index) => (
@@ -327,7 +322,6 @@ const Home = () => {
             {t('portfolio.subtitle')}
           </motion.p>
           <div
-            ref={featuredRef}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {featuredWork.map((work, index) => (
@@ -347,7 +341,7 @@ const Home = () => {
               >
                 <motion.img
                   src={work.image}
-                  alt={work.title}
+                  alt={t(`home.featuredWork.${work.titleKey}`)}
                   className="w-full h-64 object-cover"
                   whileHover={{ scale: 1.15 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}

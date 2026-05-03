@@ -27,10 +27,10 @@ const Contact = () => {
     e.preventDefault();
     setIsSending(true);
     
-    // EmailJS configuration
-    const SERVICE_ID = 'service_o3x98xo';
-    const TEMPLATE_ID = 'template_e8701wa';
-    const USER_ID = 'F_i3XVkHrbY02r6PC';
+    // EmailJS configuration — loaded from environment variables
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
     
     const templateParams = {
       from_name: formData.name,
@@ -39,7 +39,7 @@ const Contact = () => {
       to_email: 'novanestcontactus@gmail.com'
     };
     
-    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, USER_ID)
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
       .then(() => {
         setSubmitted(true);
         setIsSending(false);
@@ -49,7 +49,8 @@ const Contact = () => {
       .catch((error) => {
         console.error('EmailJS Error:', error);
         setIsSending(false);
-        alert('Sorry, there was an error sending your message. Please try again.');
+        // Use i18n translation for error message
+        alert(t('contact.error'));
       });
   };
 
