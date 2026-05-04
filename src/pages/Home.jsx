@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { FaMobileAlt, FaMagic, FaChartLine, FaBullseye } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import Testimonials from '../components/ui/Testimonials';
+import StatsCounter from '../components/ui/StatsCounter';
 
 const Home = () => {
   const { t } = useTranslation();
@@ -397,6 +399,12 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Stats Counter Section */}
+      <StatsCounter />
+
+      {/* Testimonials Section */}
+      <Testimonials />
     </div>
   );
 };

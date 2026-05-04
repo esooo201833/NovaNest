@@ -193,5 +193,46 @@
     "email": "Send Email",
     "facebook": "Facebook",
     "instagram": "Instagram"
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "We take pride in our clients' trust in NovaNest",
+    "clients": [
+      {
+        "name": "Ahmed Mahmoud",
+        "company": "Modern Tech Solutions",
+        "quote": "NovaNest transformed our digital marketing approach. Results exceeded our expectations!",
+        "rating": 5
+      },
+      {
+        "name": "Sarah Abdullah",
+        "company": "Luxe Fashion Boutique",
+        "quote": "Very professional team that understands the Egyptian market perfectly. Our sales increased 300%",
+        "rating": 5
+      },
+      {
+        "name": "Mohamed Ali",
+        "company": "Golden Sham Restaurant",
+        "quote": "Creative designs and professional management made our brand shine on social media",
+        "rating": 5
+      }
+    ]
+  },
+  "stats": {
+    "happyClients": "Happy Clients",
+    "projectsDone": "Projects Done",
+    "yearsExperience": "Years Experience",
+    "teamMembers": "Team Members"
+  },
+  "chatbot": {
+    "greeting": "Hello! I'm NovaNest's assistant. How can I help you?",
+    "placeholder": "Type your question here...",
+    "commonQuestions": [
+      "How much is social media management?",
+      "When do you start?",
+      "Do you have offers for small businesses?"
+    ],
+    "whatsappRedirect": "Want to continue with our team? Click here for WhatsApp",
+    "toggle": "Live Chat"
   }
 }

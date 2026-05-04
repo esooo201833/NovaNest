@@ -10,6 +10,7 @@ import './index.css';
 const MarketingIntro = lazy(() => import('./components/animations/MarketingIntro'));
 const Navbar         = lazy(() => import('./components/ui/Navbar'));
 const FloatingActions = lazy(() => import('./components/ui/FloatingActions'));
+const Chatbot = lazy(() => import('./components/ui/Chatbot'));
 const Home      = lazy(() => import('./pages/Home'));
 const About     = lazy(() => import('./pages/About'));
 const Portfolio = lazy(() => import('./pages/Portfolio'));
@@ -115,6 +116,10 @@ function App() {
 
               <Suspense fallback={null}>
                 <FloatingActions />
+              </Suspense>
+
+              <Suspense fallback={null}>
+                <Chatbot />
               </Suspense>
 
               <main>
